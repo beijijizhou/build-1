@@ -2,22 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 function CountButton() {
   const [count, setCount] = useState(0);
-  const backendUrl = "https://mapworkshop1.herokuapp.com:8080";
+  const backendUrl = 'https://mapworkshop1.herokuapp.com:8000';
   async function handleClick () {
     const response = await axios.get(`${backendUrl}/count`);
-    if(response.data === undefined){
-      setCount(count + 1);
-    }
-    else
-    setCount(response.data.counter);
+    setCount(count + 1);
   }
   useEffect(() => {
     async function fetchCount() {
       const response = await axios.get(`${backendUrl}`);
-      if(response.data === undefined){
-        setCount(0);
-      }
-      else
+      console.log(response)
       setCount(response.data.counter);
     }
     fetchCount();
