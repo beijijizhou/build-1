@@ -8,18 +8,30 @@ dotenv.config();
 var id = 0;
 // Connect to MongoDB
 console.log(process.env.MONGODB_URI )
-mongoose.connect(process.env.MONGODB_URI |"mongodb://127.0.0.1:27017/m2", { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {console.log('Connected to MongoDB')
+mongoose.connect(process.env.MONGO_URI);
+
+mongoose.connection.on("connected", (err, res) => {
+
+  console.log("mongoose is connected")
   const newCounter = new Counter({ counter: 0 })
   newCounter.save().then(res=>
     
     {id=res._id.toString();
       console.log(res)
     console.log(id)});
-}
+})
+// mongoose.connect(process.env.MONGODB_URI |"mongodb://127.0.0.1:27017/m2", { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {console.log('Connected to MongoDB')
+//   const newCounter = new Counter({ counter: 0 })
+//   newCounter.save().then(res=>
+    
+//     {id=res._id.toString();
+//       console.log(res)
+//     console.log(id)});
+// }
   
-  )
-  .catch(error => console.error(error));
+//   )
+//   .catch(error => console.error(error));
 
 // Enable CORS
 app.use(cors());
