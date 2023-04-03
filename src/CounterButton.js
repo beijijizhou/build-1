@@ -5,12 +5,19 @@ function CountButton() {
   const backendUrl = "https://mapworkshop1.herokuapp.com:8080";
   async function handleClick () {
     const response = await axios.get(`${backendUrl}/count`);
+    if(response.data === undefined){
+      setCount(count + 1);
+    }
+    else
     setCount(response.data.counter);
   }
   useEffect(() => {
     async function fetchCount() {
       const response = await axios.get(`${backendUrl}`);
-      console.log(response)
+      if(response.data === undefined){
+        setCount(0);
+      }
+      else
       setCount(response.data.counter);
     }
     fetchCount();
