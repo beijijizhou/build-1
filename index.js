@@ -7,7 +7,7 @@ const app = express();
 dotenv.config();
 var id = 0;
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/m2", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI |"mongodb://127.0.0.1:27017/m2", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {console.log('Connected to MongoDB')
   const newCounter = new Counter({ counter: 0 })
   newCounter.save().then(res=>
