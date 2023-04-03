@@ -8,7 +8,7 @@ dotenv.config();
 var id = 0;
 // Connect to MongoDB
 console.log(process.env.MONGODB_URI )
-mongoose.connect(process.env.MONGODB_URI );
+mongoose.connect(process.env.MONGODB_URI ||"mongodb+srv://andy:MAPWORKSHOP@cluster0.wdetxeg.mongodb.net/map?retryWrites=true&w=majority" );
 mongoose.connection.on("connected", (err, res) => {
   console.log("mongoose is connected")
   const newCounter = new Counter({ counter: 0 })

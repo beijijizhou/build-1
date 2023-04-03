@@ -25,11 +25,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "cd client && npm start",
-    "install-client": "cd client && npm install",
+    "build": "cd src && npm start",
+    "install-client": "cd src && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node index.js",
-    "client": "cd client && npm start",
+    "start": "react-scripts start",
+    "begin": "react-scripts start",
+    "client": "cd src && npm start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
