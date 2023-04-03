@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 function CountButton() {
   const [count, setCount] = useState(0);
   const backendUrl = `https://mapworkshop1.herokuapp.com`;
@@ -19,7 +20,7 @@ function CountButton() {
   return (
     <div>
       <p>Count: {count}</p>
-      <button onClick={handleClick}>Click to increase the counter !</button>
+      <button onClick={handleClick}>Click to increase the counter!</button>
     </div>
   );
 }
