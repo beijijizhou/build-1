@@ -42,9 +42,9 @@ app.get('/count',  async (req, res) => {
   res.status(200).json({ counter: data.counter  });
 });
 // Start the server
-app.use(cors({
-  origin: ["http://localhost:8080"],
-  credentials: true
-}));
-const PORT = "https://mapworkshop1.herokuapp.com:8080";
+// app.use(cors({
+//   origin: ["http://localhost:8080"],
+//   credentials: true
+// }));
+const PORT = process.env.PORT || '5000';
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
