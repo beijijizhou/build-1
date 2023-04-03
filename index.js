@@ -21,7 +21,10 @@ mongoose.connect("mongodb://127.0.0.1:27017/m2", { useNewUrlParser: true, useUni
   .catch(error => console.error(error));
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:8080"],
+  credentials: true
+}));
 
 // Add middleware for parsing JSON and URL-encoded data
 app.use(express.json());
@@ -32,7 +35,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/',  async (req, res) => {
  
   const data = await Counter.findOne({_id:id});
-  
   res.status(200).json({ counter: data.counter  });
 });
 app.get('/count',  async (req, res) => {
@@ -40,5 +42,9 @@ app.get('/count',  async (req, res) => {
   res.status(200).json({ counter: data.counter  });
 });
 // Start the server
-const PORT = process.env.PORT || 8000;
+app.use(cors({
+  origin: ["http://localhost:8080"],
+  credentials: true
+}));
+const PORT = "https://mapworkshop1.herokuapp.com:8080";
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
