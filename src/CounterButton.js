@@ -19,7 +19,7 @@ function CountButton() {
   return (
     <div>
       <p>Count: {count}</p>
-      <button onClick={handleClick}>Click me!</button>
+      <button onClick={handleClick}>Click to increase the counter !</button>
     </div>
   );
 }
