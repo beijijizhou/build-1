@@ -25,9 +25,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node index.js && cd src && npm run begin",
+    "start": "cd src && npm i && npm run begin",
     "begin" :"react-scripts start",
-    "build": "cd src && npm i && npm run start",
+    "build": "node index.js ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
