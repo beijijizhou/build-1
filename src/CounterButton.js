@@ -3,11 +3,11 @@ import axios from 'axios';
 
 function CountButton() {
   const [count, setCount] = useState(0);
-  const backendUrl = `https://mapworkshop1.herokuapp.com`;
+  const backendUrl = `https://counter-test.onrender.com`;
   async function handleClick () {
-    // const response = await axios.get(`${backendUrl}/count`);
-    // console.log(response)
-    setCount(count + 1);
+    const response = await axios.get(`${backendUrl}/count`);
+
+    setCount(response.data.counter);
   }
   useEffect(() => {
     async function fetchCount() {
