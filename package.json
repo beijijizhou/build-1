@@ -28,7 +28,7 @@
     "build": "cd src && npm start",
     "install-client": "cd src && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "react-scripts start",
+    "start": "npm install && node index.js",
     "begin": "react-scripts start",
     "client": "cd src && npm start",
     "test": "react-scripts test",
